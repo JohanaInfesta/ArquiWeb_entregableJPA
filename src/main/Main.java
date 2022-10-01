@@ -1,31 +1,29 @@
-package edu.main;
-
-import java.time.LocalDate;
+package main;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import edu.clases.Carrera;
-import edu.clases.CarreraEstudiante;
-import edu.clases.Estudiante;
+import criterios.Genero;
+import entity.Carrera;
+import entity.Estudiante;
 
-public class insert {
+public class Main {
 
 	public static void main(String[] args) {
 		
+		// hacer factory de entity manager para MySQL y DERBY .... BUSCAR!!!
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Example");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		Estudiante e = new Estudiante("johana", "infesta", 31, "femenino", 35580050, "Tandil");
+		Estudiante e = new Estudiante("johana", "infesta", 31, Genero.femenino, 35580050, "Tandil");
 		em.persist(e);
-		Carrera c = new Carrera(1, "TUDAI");
+		Carrera c = new Carrera( "TUDAI");
 		em.persist(c);
-		CarreraEstudiante ce = new CarreraEstudiante(LocalDate.now(), null);
-		em.persist(ce);
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
-		
+
 	}
+
 }

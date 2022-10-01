@@ -1,36 +1,47 @@
-package edu.clases;
+package entity;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import criterios.Genero;
+
 @Entity
 public class Estudiante {
-
+	
+	@Column
+	private int dni;
 	@Column
 	private String nombre;
 	@Column
 	private String apellido;
 	@Column
-	private int edad;
+	private int edad; //Long
 	@Column
-	private String genero;
+	private Genero genero;
+	
 	@Id
-	private int dni;
+	@Column(name="libreta")
+	@GeneratedValue(strategy=GenerationType.AUTO) //buscar solucion para este generador porque siempre es 0
+	private int libretaUniversitaria; //Long
 	@Column
 	private String ciudad;
-	@OneToMany(mappedBy = "estudiante")
+	@OneToMany(mappedBy = "estudiante", fetch=FetchType.LAZY)
 	private List <CarreraEstudiante>carreras;
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int libretaUniversitaria;
 	
-	public Estudiante(String nombre, String apellido, int edad, String genero, int dni, String ciudad) {
+	
+	public Estudiante() {
+		super();
+	}
+
+	public Estudiante(String nombre, String apellido, int edad, Genero genero, int dni, String ciudad) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -38,27 +49,14 @@ public class Estudiante {
 		this.genero = genero;
 		this.dni = dni;
 		this.ciudad = ciudad;
-		this.carreras = new ArrayList<>();
 	}
-
-//	public void addCarrera(Carrera c) {
-//		if(!carreras.contains(c))
-//			carreras.add(c);
-//	}
+	
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
 	}
 
 	public int getEdad() {
@@ -69,11 +67,11 @@ public class Estudiante {
 		this.edad = edad;
 	}
 
-	public String getGenero() {
+	public Genero getGenero() {
 		return genero;
 	}
 
-	public void setGenero(String genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 
@@ -101,13 +99,20 @@ public class Estudiante {
 		return libretaUniversitaria;
 	}
 
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
 	@Override
 	public String toString() {
-		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero=" + genero
-				+ ", dni=" + dni + ", ciudad=" + ciudad + ", carreras=" + carreras + ", libretaUniversitaria="
-				 + "]";
+		return "Estudiante [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad
+				+ ", genero=" + genero + ", libretaUniversitaria=" + libretaUniversitaria + ", ciudad=" + ciudad + "]";
 	}
-	
+
 	
 	
 }

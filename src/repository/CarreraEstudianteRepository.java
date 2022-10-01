@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import entity.Carrera;
-import entity.Estudiante;
+import entities.Carrera;
+import entities.Estudiante;
 import interfaces.InterfaceCarreraEstudiante;
 
 public class CarreraEstudianteRepository implements InterfaceCarreraEstudiante{ //implement interface de carreraEstudiante

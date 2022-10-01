@@ -1,6 +1,6 @@
 package interfaces;
 
-import entity.Carrera;
+import entities.Carrera;
 
 public interface InterfaceCarrera {
 

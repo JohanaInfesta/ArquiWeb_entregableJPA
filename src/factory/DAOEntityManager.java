@@ -1,13 +1,19 @@
 package factory;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import repository.CarreraEstudianteRepository;
 import repository.CarreraRepository;
 import repository.EstudianteRepository;
 
-public abstract class EntityManager {
+public abstract class DAOEntityManager {
 
 	public static final String MySQL = "mysql";
 	public static final String Derby = "derby";
+
+	protected static EntityManager em = null;
+	private EntityManagerFactory emf = null;
 
 	public abstract CarreraRepository getCarreraRepository();
 
@@ -16,7 +22,7 @@ public abstract class EntityManager {
 	public abstract CarreraEstudianteRepository getCarreraEstudianteRepository();
 
 
-	public static EntityManager getEntityManager(String factory) {
+	public DAOEntityManager getDAOEntityManager(String factory) {
 		switch(factory) {
 		case MySQL : 
 			return new mysqlEntityManager();
@@ -26,4 +32,15 @@ public abstract class EntityManager {
 			return null;
 		}
 	}
+
+	public void setEntityManagerFactory(EntityManagerFactory emf) {
+		this.emf = emf;
+	}
+	public EntityManagerFactory getEntityManagerFactory() {
+		return this.emf;
+	}
+	public EntityManager createEntityManager() {
+		return emf.createEntityManager();
+	}
+
 }

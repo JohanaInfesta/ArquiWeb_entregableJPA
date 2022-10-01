@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
 
-import entity.Estudiante;
+import entities.Estudiante;
 import interfaces.InterfaceEstudiante;
 
 public class EstudianteRepository implements InterfaceEstudiante{

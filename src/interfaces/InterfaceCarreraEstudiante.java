@@ -2,8 +2,8 @@ package interfaces;
 
 import java.util.List;
 
-import entity.Carrera;
-import entity.Estudiante;
+import entities.Carrera;
+import entities.Estudiante;
 
 public interface InterfaceCarreraEstudiante {
 

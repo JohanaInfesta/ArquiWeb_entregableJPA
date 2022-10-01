@@ -2,7 +2,7 @@ package interfaces;
 
 import java.util.List;
 
-import entity.Estudiante;
+import entities.Estudiante;
 
 public interface InterfaceEstudiante {
 

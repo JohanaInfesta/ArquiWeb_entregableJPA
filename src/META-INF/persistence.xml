@@ -8,9 +8,9 @@
     <persistence-unit name="Example">
  		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
-        <class>entity.Estudiante</class>
-        <class>entity.Carrera</class>
-        <class>entity.CarreraEstudiante</class>
+        <class>entities.Estudiante</class>
+        <class>entities.Carrera</class>
+        <class>entities.CarreraEstudiante</class>
         
         <properties>          
         <!-- Propiedades de configuracion de JDBC para MySQL-->

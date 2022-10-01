@@ -4,11 +4,12 @@ import repository.CarreraEstudianteRepository;
 import repository.CarreraRepository;
 import repository.EstudianteRepository;
 
-public class mysqlEntityManager extends EntityManager {
+public class mysqlEntityManager extends DAOEntityManager {
 
+	
+	
 	@Override
 	public CarreraRepository getCarreraRepository() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -23,5 +24,7 @@ public class mysqlEntityManager extends EntityManager {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

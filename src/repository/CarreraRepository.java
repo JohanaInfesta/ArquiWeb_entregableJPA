@@ -2,7 +2,7 @@ package repository;
 
 import javax.persistence.EntityManagerFactory;
 
-import entity.Carrera;
+import entities.Carrera;
 import interfaces.InterfaceCarrera;
 
 public class CarreraRepository implements InterfaceCarrera{

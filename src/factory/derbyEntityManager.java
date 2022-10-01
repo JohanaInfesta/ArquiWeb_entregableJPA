@@ -4,9 +4,8 @@ import repository.CarreraEstudianteRepository;
 import repository.CarreraRepository;
 import repository.EstudianteRepository;
 
-public class derbyEntityManager extends EntityManager {
+public class derbyEntityManager extends DAOEntityManager {
 
-	
 	@Override
 	public CarreraRepository getCarreraRepository() {
 		// TODO Auto-generated method stub
@@ -24,5 +23,8 @@ public class derbyEntityManager extends EntityManager {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+	
 
 }

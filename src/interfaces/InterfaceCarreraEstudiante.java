@@ -5,7 +5,7 @@ import java.util.List;
 import entities.Carrera;
 import entities.Estudiante;
 
-public interface InterfaceCarreraEstudiante {
+public interface InterfaceCarreraEstudiante{
 
 	//b) matricular un estudiante en una carrera
 	//

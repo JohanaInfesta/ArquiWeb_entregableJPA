@@ -2,18 +2,18 @@ package repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityManager;
 
 import entities.Estudiante;
 import interfaces.InterfaceEstudiante;
+//al extender de repository puedo usar los metodos add y close
+public class EstudianteRepository extends Repository<Estudiante> implements InterfaceEstudiante{
 
-public class EstudianteRepository implements InterfaceEstudiante{
-
-	private EntityManagerFactory emf;
+	private EntityManager em;
 	
-	public EstudianteRepository(EntityManagerFactory emf) {
+	public EstudianteRepository(EntityManager em) {
 		super();
-		this.emf = emf;
+		this.em = em;
 	}
 
 	@Override

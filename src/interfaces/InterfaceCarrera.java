@@ -4,9 +4,9 @@ import entities.Carrera;
 
 public interface InterfaceCarrera {
 
-	//guardar carrera(Carrera)
-	public void guardarCarrera(Carrera c);
-	
+//	//guardar carrera(Carrera)
+//	public void guardarCarrera(Carrera c);
+//	
 	//encontrar carrera (Long id)
 	public Carrera encontrarCarrera(Long id);
 	

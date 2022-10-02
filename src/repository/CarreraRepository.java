@@ -1,24 +1,21 @@
 package repository;
 
-import javax.persistence.EntityManagerFactory;
-
+import javax.persistence.EntityManager;
 import entities.Carrera;
 import interfaces.InterfaceCarrera;
 
-public class CarreraRepository implements InterfaceCarrera{
+public class CarreraRepository extends Repository<Carrera> implements InterfaceCarrera{
 
-	private EntityManagerFactory emf;
+	private EntityManager em;
 	
-	public CarreraRepository(EntityManagerFactory emf) {
+	public CarreraRepository(EntityManager em) {
 		super();
-		this.emf = emf;
+		this.em = em;
 	}
 
-	@Override
-	public void guardarCarrera(Carrera c) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void guardarCarrera(Carrera c) {
+//	}
 
 	@Override
 	public Carrera encontrarCarrera(Long id) {

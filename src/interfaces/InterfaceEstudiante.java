@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import entities.Estudiante;
@@ -16,5 +18,6 @@ public interface InterfaceEstudiante {
 	//e) recuperar todos los estudiantes, en base a su género.
 	public List<Estudiante>getAllEstudiantesByGenero();
 	
+	public void insertarListadoCSV() throws FileNotFoundException, IOException;
 	
 }

@@ -1,5 +1,6 @@
 package repository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,23 +8,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import entities.Carrera;
+import entities.CarreraEstudiante;
 import entities.Estudiante;
 import interfaces.InterfaceCarreraEstudiante;
 
-public class CarreraEstudianteRepository implements InterfaceCarreraEstudiante{ //implement interface de carreraEstudiante
+public class CarreraEstudianteRepository extends Repository<CarreraEstudiante> implements InterfaceCarreraEstudiante{ //implement interface de carreraEstudiante
 
-	private EntityManagerFactory emf;
+	private EntityManager em;
 	
-	public CarreraEstudianteRepository(EntityManagerFactory emf) {
+	public CarreraEstudianteRepository(EntityManager em) {
 		super();
-		this.emf = emf;
+		this.em = em;
 	}
 	
 	
 
 	@Override //ReporteDTO en vez de Estudiante
 	public ArrayList<Estudiante> generarReporteFinal() {
-		EntityManager em = this.emf.createEntityManager();
+//		EntityManager em = this.emf.createEntityManager();
 		return null;
 	}
 
@@ -31,14 +33,16 @@ public class CarreraEstudianteRepository implements InterfaceCarreraEstudiante{ 
 
 	@Override
 	public void matricularEstudiante(Estudiante e, Carrera c) {
-		EntityManager em = this.emf.createEntityManager();
-		
+//		EntityManager em = this.emf.createEntityManager();
+		CarreraEstudiante ce = new CarreraEstudiante(c, e, LocalDate.now(), null);
+		add(ce);
 	}
 
 
 
 	@Override
 	public List<Carrera> getCarrerasOrder() {
+		
 		return null;
 	}
 

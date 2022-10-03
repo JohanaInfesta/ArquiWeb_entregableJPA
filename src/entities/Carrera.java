@@ -15,23 +15,24 @@ import javax.persistence.OneToMany;
 public class Carrera {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int carreraID; //Long en vez de int
+	private int carreraID;
 	
 	@Column
 	private String nombre;
 	
  	@OneToMany(mappedBy = "carrera", fetch=FetchType.LAZY)
 	private List<CarreraEstudiante>estudiantes;
- 	//@Column
- 	//ptivate int duracionAnios
+ 	@Column
+ 	private int duracionAnios;
  	
 	public Carrera() {
 		super();
 	}
 
-	public Carrera(String nombre) { //int duracionAnios
+	public Carrera(String nombre, int duracionAnios) { //int duracionAnios
 		super();
 		this.nombre = nombre;
+		this.duracionAnios = duracionAnios;
 		this.estudiantes = new ArrayList<>();
 	}
 
@@ -44,10 +45,24 @@ public class Carrera {
 	public int getId_carrera() {
 		return carreraID;
 	}
+	
+	public int getDuracionAnios() {
+		return duracionAnios;
+	}
+
+	public void setDuracionAnios(int duracionAnios) {
+		this.duracionAnios = duracionAnios;
+	}
+
 	public List<CarreraEstudiante> getEstudiantes() {
 		return estudiantes;
 	}
+
+	@Override
+	public String toString() {
+		return "Carrera [nombre=" + nombre + ", duracionAnios=" + duracionAnios + "]";
+	}
  	
-	//toString
+	
  	
 }

@@ -26,7 +26,7 @@ public class CarreraEstudiante {
 	private Carrera carrera;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name="fk_estudiante", referencedColumnName="dni")
+	@JoinColumn(name="fk_estudiante", referencedColumnName="libreta")
 	private Estudiante estudiante;
 	
 	@Column

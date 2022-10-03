@@ -11,13 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import criterios.Genero;
-
 @Entity
 public class Estudiante {
 	
-	@Column
-	private int dni;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO) 
+	private int libreta;
 	@Column
 	private String nombre;
 	@Column
@@ -25,12 +24,10 @@ public class Estudiante {
 	@Column
 	private int edad; //Long
 	@Column
-	private Genero genero;
+	private String genero;
+	@Column
+	private int dni;
 	
-	@Id
-	@Column(name="libreta")
-	@GeneratedValue(strategy=GenerationType.AUTO) //buscar solucion para este generador porque siempre es 0
-	private int libretaUniversitaria; //Long
 	@Column
 	private String ciudad;
 	@OneToMany(mappedBy = "estudiante", fetch=FetchType.LAZY)
@@ -41,7 +38,7 @@ public class Estudiante {
 		super();
 	}
 
-	public Estudiante(String nombre, String apellido, int edad, Genero genero, int dni, String ciudad) {
+	public Estudiante(String nombre, String apellido, int edad, String genero, int dni, String ciudad) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -67,11 +64,11 @@ public class Estudiante {
 		this.edad = edad;
 	}
 
-	public Genero getGenero() {
+	public String getGenero() {
 		return genero;
 	}
 
-	public void setGenero(Genero genero) {
+	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 
@@ -96,7 +93,7 @@ public class Estudiante {
 	}
 
 	public int getLibretaUniversitaria() {
-		return libretaUniversitaria;
+		return libreta;
 	}
 
 	public String getApellido() {
@@ -109,8 +106,8 @@ public class Estudiante {
 
 	@Override
 	public String toString() {
-		return "Estudiante [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad
-				+ ", genero=" + genero + ", libretaUniversitaria=" + libretaUniversitaria + ", ciudad=" + ciudad + "]";
+		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", edad=" + edad
+				+ ", genero=" + genero + ", libretaUniversitaria=" + libreta + ", ciudad=" + ciudad + "]";
 	}
 
 	

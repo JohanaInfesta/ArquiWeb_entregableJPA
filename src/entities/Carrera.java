@@ -25,7 +25,7 @@ public class Carrera {
  	@Column
  	private int duracionAnios;
  	
- 	private Integer cantInscriptos; 	 	
+ 		 	
 	public Carrera() {
 		super();
 	}
@@ -38,13 +38,6 @@ public class Carrera {
 	}
 
 		
-	public Carrera(String nombre, int duracionAnios, Integer cantInscriptos) {
-		super();
-		this.nombre = nombre;
-		this.duracionAnios = duracionAnios;
-		this.cantInscriptos = cantInscriptos;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -68,10 +61,6 @@ public class Carrera {
 	}
 
 	
-	public Integer getCantInscriptos() {
-		return cantInscriptos;
-	}
-
 	@Override
 	public String toString() {
 		return "Carrera [carreraID=" + carreraID + ", nombre=" + nombre + ", estudiantes=" + estudiantes

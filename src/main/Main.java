@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import entities.Carrera;
 import repository.CarreraEstudianteRepository;
 import repository.CarreraRepository;
 import repository.EstudianteRepository;
@@ -27,9 +28,9 @@ public class Main {
 //		cr.insertarListadoCSV();
 	
 		//2-B)
-//		cer.matricularEstudiante(er.getEstudianteByLibreta(1), cr.getCarrera(12));
-//		cer.matricularEstudiante(er.getEstudianteByLibreta(2), cr.getCarrera(13));
-//		cer.matricularEstudiante(er.getEstudianteByLibreta(3), cr.getCarrera(12));
+//		cer.matricularEstudiante(er.getEstudianteByLibreta(3), cr.getCarrera(11));
+//		cer.matricularEstudiante(er.getEstudianteByLibreta(4), cr.getCarrera(11));
+//		cer.matricularEstudiante(er.getEstudianteByLibreta(5), cr.getCarrera(11));
 		
 		//2-C)
 //		er.getEstudianteByCriterio();
@@ -44,7 +45,11 @@ public class Main {
 //		er.getAllEstudiantesByGenero("masculino");
 		
 		//2-F)
-		cer.getCarrerasOrder();
+//		cer.getCarrerasOrder();
+		
+		//2-G)
+		Carrera tudai = cr.getCarrera(11);
+		cer.getEstudiantesCarrera(tudai, "Tandil");
 
 	}
 

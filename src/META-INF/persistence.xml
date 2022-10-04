@@ -12,6 +12,7 @@
         <class>entities.CarreraEstudiante</class>
         <class>entities.Estudiante</class>
         
+        
         <properties>          
         <!-- Propiedades de configuracion de JDBC para MySQL-->
         	<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" /> <!-- conexion de la DB-->

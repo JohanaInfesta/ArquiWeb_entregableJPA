@@ -14,7 +14,7 @@ import javax.persistence.Query;
 import entities.Estudiante;
 import interfaces.InterfaceEstudiante;
 
-
+@SuppressWarnings("unchecked")
 //al extender de repository puedo usar los metodos add y close
 public class EstudianteRepository extends Repository<Estudiante> implements InterfaceEstudiante{
 
@@ -32,8 +32,6 @@ public class EstudianteRepository extends Repository<Estudiante> implements Inte
 		
 		String jpql = "SELECT * FROM estudiante e ORDER BY e.apellido ASC";
 		Query query = em.createNativeQuery(jpql, Estudiante.class);
-		
-		@SuppressWarnings("unchecked")
 		List<Estudiante> resultado = query.getResultList();
 		resultado.forEach(p -> System.out.println(p));
 		return resultado;
@@ -43,13 +41,12 @@ public class EstudianteRepository extends Repository<Estudiante> implements Inte
 	public Estudiante getEstudianteByLibreta(int libreta) {
 		return em.find(Estudiante.class, libreta);
 	}
-
+	
 	@Override
 	public List<Estudiante> getAllEstudiantesByGenero(String genero) {
 		String jpql = "SELECT * FROM estudiante e WHERE e.genero =?1";
 		Query query = em.createNativeQuery(jpql, Estudiante.class);
 		query.setParameter(1, genero);
-		@SuppressWarnings("unchecked")
 		List<Estudiante>resultado = query.getResultList();
 		resultado.forEach(p -> System.out.println(p));
 		return resultado;

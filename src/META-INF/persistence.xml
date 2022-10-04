@@ -4,13 +4,13 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
      http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-  <!-- en el name se pone el nombre con el que se llama al createEntityManagerFactory del main-->
+ 
     <persistence-unit name="IntegradorJPA">
  		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
-        <class>entities.Estudiante</class>
         <class>entities.Carrera</class>
         <class>entities.CarreraEstudiante</class>
+        <class>entities.Estudiante</class>
         
         <properties>          
         <!-- Propiedades de configuracion de JDBC para MySQL-->
@@ -18,12 +18,10 @@
         	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/example" /> <!-- URL de la DB-->
         	<property name="javax.persistence.jdbc.user" value="root" /> <!-- User de la DB-->
         	<property name="javax.persistence.jdbc.password" value="" /> <!-- Contraseña de la DB-->
-        	
         	<!-- Propiedades para la generacion automatica del esquema de base de datos-->
         	<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- se cree o se actualize el modelo de datos a partir del modelo de clases que yo defino-->
         	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" /> <!-- dialecto de sql tiene que usar -->
             <property name="show_sql" value="true" />
-                       
         </properties>
     </persistence-unit>
 </persistence>

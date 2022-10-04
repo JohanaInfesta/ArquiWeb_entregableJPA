@@ -25,6 +25,7 @@ public class Carrera {
  	@Column
  	private int duracionAnios;
  	
+ 	private Integer cantInscriptos; 	 	
 	public Carrera() {
 		super();
 	}
@@ -34,6 +35,14 @@ public class Carrera {
 		this.nombre = nombre;
 		this.duracionAnios = duracionAnios;
 		this.estudiantes = new ArrayList<>();
+	}
+
+		
+	public Carrera(String nombre, int duracionAnios, Integer cantInscriptos) {
+		super();
+		this.nombre = nombre;
+		this.duracionAnios = duracionAnios;
+		this.cantInscriptos = cantInscriptos;
 	}
 
 	public String getNombre() {
@@ -58,11 +67,15 @@ public class Carrera {
 		return estudiantes;
 	}
 
+	
+	public Integer getCantInscriptos() {
+		return cantInscriptos;
+	}
+
 	@Override
 	public String toString() {
-		return "Carrera [nombre=" + nombre + ", duracionAnios=" + duracionAnios + "]";
+		return "Carrera [carreraID=" + carreraID + ", nombre=" + nombre + ", estudiantes=" + estudiantes
+				+ ", duracionAnios=" + duracionAnios + "]";
 	}
- 	
-	
- 	
+
 }

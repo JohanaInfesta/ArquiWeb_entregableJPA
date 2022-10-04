@@ -33,8 +33,7 @@ public class CarreraEstudiante {
  	private LocalDate inscripcion;
 	@Column(nullable = true)
 	private Date graduado;
-	//@Column  //get y set
-	//private int antiguedad
+	
 	
 	public CarreraEstudiante(Carrera carrera, Estudiante estudiante, LocalDate inscripcion, Date graduado) {//int antiguedad
 		super();
@@ -63,6 +62,9 @@ public class CarreraEstudiante {
 	public Date getGraduado() {
 		return graduado;
 	}
+
+	
+	
 	
 	
 	//toString

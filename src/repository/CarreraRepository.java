@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -22,9 +23,6 @@ public class CarreraRepository extends Repository<Carrera> implements InterfaceC
 		this.em = em;
 	}
 
-	//	@Override
-	//	public void guardarCarrera(Carrera c) {
-	//	}
 
 	@Override
 	public Carrera getCarrera(int id) {
@@ -33,8 +31,7 @@ public class CarreraRepository extends Repository<Carrera> implements InterfaceC
 
 	@Override
 	public void eliminarCarrera(Carrera c) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

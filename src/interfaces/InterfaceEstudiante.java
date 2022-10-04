@@ -16,7 +16,7 @@ public interface InterfaceEstudiante {
 	public Estudiante getEstudianteByLibreta(int libreta);
 	
 	//e) recuperar todos los estudiantes, en base a su género.
-	public List<Estudiante>getAllEstudiantesByGenero();
+	public List<Estudiante>getAllEstudiantesByGenero(String genero);
 	
 	public void insertarListadoCSV() throws FileNotFoundException, IOException;
 	

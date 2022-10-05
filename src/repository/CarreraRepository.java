@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -13,7 +12,11 @@ import org.apache.commons.csv.CSVRecord;
 
 import entities.Carrera;
 import interfaces.InterfaceCarrera;
-
+/**
+ * 
+ * @author Johana Infesta, Rocio Giannaccini, Juan Mauro, Juan Manuel Campo
+ *
+ */
 public class CarreraRepository extends Repository<Carrera> implements InterfaceCarrera{
 
 	private EntityManager em;
@@ -29,19 +32,10 @@ public class CarreraRepository extends Repository<Carrera> implements InterfaceC
 		return em.find(Carrera.class, id);
 	}
 
-	@Override
-	public void eliminarCarrera(Carrera c) {
-		
-	}
-
-	@Override
-	public void actualizarCarrera(Carrera c) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	@Override
 	public void insertarListadoCSV() throws FileNotFoundException, IOException {
+		@SuppressWarnings("deprecation")
 		CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new
 				FileReader("./src/archivosCSV/carreras.csv"));
 		for(CSVRecord row: parser) {
@@ -51,7 +45,4 @@ public class CarreraRepository extends Repository<Carrera> implements InterfaceC
 
 	}
 
-
-
-	//
 }

@@ -2,18 +2,22 @@ package repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import entities.Carrera;
 import entities.CarreraEstudiante;
 import entities.Estudiante;
 import entities.dto.carreraDTO;
+import entities.dto.reporteDTO;
 import interfaces.InterfaceCarreraEstudiante;
-
+/**
+ * 
+ * @author Johana Infesta, Rocio Giannaccini, Juan Mauro, Juan Manuel Campo
+ *
+ */
 @SuppressWarnings("rawtypes")
 public class CarreraEstudianteRepository extends Repository<CarreraEstudiante> implements InterfaceCarreraEstudiante{ //implement interface de carreraEstudiante
 
@@ -24,12 +28,29 @@ public class CarreraEstudianteRepository extends Repository<CarreraEstudiante> i
 		this.em = em;
 	}
 
-
-
 	@Override //ReporteDTO en vez de Estudiante
-	public ArrayList<Estudiante> generarReporteFinal() {
-		//		EntityManager em = this.emf.createEntityManager();
-		return null;
+	public List<reporteDTO> generarReporteFinal() {
+		String jpql = "SELECT c.nombre, ce.inscripcion, COUNT(YEAR(ce.graduado))AS cantGraduados, COUNT(YEAR(ce.inscripcion))AS cantInscriptos "
+					+ "FROM carrera_estudiante ce "
+					+ "JOIN carrera c ON c.carreraID = ce.fk_carrera "
+					+ "GROUP BY YEAR(ce.inscripcion), c.carreraID "
+					+ "ORDER BY c.nombre, ce.inscripcion ASC";
+		Query query = em.createNativeQuery(jpql);
+		List resultList = query.getResultList();
+		List<reporteDTO> resultado = new ArrayList<>();
+		Iterator res = resultList.iterator();
+		while(res.hasNext()) {
+			Object[] tupla = (Object[])res.next();
+			String nombreCarrera = (String) tupla[0];
+			Date inscripcion = (Date) tupla[1];
+			long cantGraduados = Long.parseLong(String.valueOf(tupla[2]));
+			long cantInscriptos = Long.parseLong(String.valueOf(tupla[3]));
+			
+			reporteDTO r = new reporteDTO(nombreCarrera, inscripcion, cantGraduados, cantInscriptos);
+			resultado.add(r);
+		}
+		resultado.forEach(p -> System.out.println(p));
+		return resultado;
 	}
 
 
@@ -65,7 +86,7 @@ public class CarreraEstudianteRepository extends Repository<CarreraEstudiante> i
             resultado.add(c);
 		}
 		resultado.forEach(p -> System.out.println(p));
-		return null;
+		return resultado;
 	}
 
 

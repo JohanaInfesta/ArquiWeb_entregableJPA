@@ -3,7 +3,12 @@ package repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+/**
+ * 
+ * @author Johana Infesta, Rocio Giannaccini, Juan Mauro, Juan Manuel Campo
+ *
+ * @param <T>
+ */
 public class Repository<T> { //abstract class?
 	//esta clase no va
 	//hacer clases DTO para cada clase que tengas los constructotes de ReporteDTO, Carrera, Estudiante clase, gets y toString

@@ -12,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author Johana Infesta, Rocio Giannaccini, Juan Mauro, Juan Manuel Campo
+ *
+ */
 @Entity
 @Table(name="carrera_estudiante")
 public class CarreraEstudiante {

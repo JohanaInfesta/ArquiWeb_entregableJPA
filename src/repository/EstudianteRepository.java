@@ -10,12 +10,14 @@ import org.apache.commons.csv.CSVRecord;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import entities.Estudiante;
 import interfaces.InterfaceEstudiante;
-
+/**
+ * 
+ * @author Johana Infesta, Rocio Giannaccini, Juan Mauro, Juan Manuel Campo
+ *
+ */
 @SuppressWarnings("unchecked")
-//al extender de repository puedo usar los metodos add y close
 public class EstudianteRepository extends Repository<Estudiante> implements InterfaceEstudiante{
 
 	private EntityManager em;
@@ -27,9 +29,6 @@ public class EstudianteRepository extends Repository<Estudiante> implements Inte
 
 	@Override
 	public List<Estudiante> getEstudianteByCriterio() {
-		
-//		Query query = em.createcreateQuery("SELECT e FROM estudiante e ORDER BY e.apellido ASC", Estudiante.class);
-		
 		String jpql = "SELECT * FROM estudiante e ORDER BY e.apellido ASC";
 		Query query = em.createNativeQuery(jpql, Estudiante.class);
 		List<Estudiante> resultado = query.getResultList();
@@ -62,11 +61,5 @@ public class EstudianteRepository extends Repository<Estudiante> implements Inte
 			add(e);
 		}
 	}
-
-	//a)main
-
-	//b)main
-
-
 
 }

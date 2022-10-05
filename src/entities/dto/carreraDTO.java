@@ -1,5 +1,9 @@
 package entities.dto;
-
+/**
+ * 
+ * @author Johana Infesta, Rocio Giannaccini, Juan Mauro, Juan Manuel Campo
+ *
+ */
 public class carreraDTO {
 
 	private String nombre;

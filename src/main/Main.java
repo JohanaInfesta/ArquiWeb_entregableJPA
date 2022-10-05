@@ -48,9 +48,11 @@ public class Main {
 //		cer.getCarrerasOrder();
 		
 		//2-G)
-		Carrera tudai = cr.getCarrera(11);
-		cer.getEstudiantesCarrera(tudai, "Tandil");
+//		Carrera tudai = cr.getCarrera(11);
+//		cer.getEstudiantesCarrera(tudai, "Tandil");
 
+		//3)
+		cer.generarReporteFinal();
 	}
 
 }
